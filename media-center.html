@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Center - Hope for Gaza</title>
+    <link rel="stylesheet" href="i.css">
+</head>
+<body>
+    <div id="particle-container"></div>
+    <header class="site-header">
+        <nav class="nav-container">
+            <div class="logo-section">
+                <a href="index.html">
+                    <img src="pictures/HopeForGaza1.png" alt="HopeForGaza Logo" class="logo">
+                </a>
+            </div>
+            <div class="header-container">
+                <div class="nav-links">
+                    <a href="work.html">Our work</a>
+                    <a href="programs.html#programs">Programs</a>
+                    <a href="media-center.html">Media center</a>
+                    <a href="index.html#about">About Us</a>
+                </div>
+                <a href="donate.html" class="donate-btn">+ DONATE</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="media-wrapper">
+        <main>
+            <section class="media-hero">
+                <h1>Media Center</h1>
+                <p>Explore our gallery and videos documenting our work and impact</p>
+            </section>
+
+            <section class="video-section">
+                <h2>Featured Video</h2>
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/e0Ze-6PZsug" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </section>
+
+            <section class="photo-gallery">
+                <h2>Photo Gallery</h2>
+                <div class="gallery-grid" id="gallery-page-1">
+                    <div class="gallery-item">
+                        <img src="pictures/mainpic.jpg" alt="Food Aid" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="pictures/secondpic.webp" alt="Building Aid" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="pictures/thirdpic.png" alt="Winter Aid" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="pictures/146704.jpg" alt="Aid Distribution" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="pictures/displaced people.jpg" alt="Displaced People" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="pictures/hunger.jpg" alt="Food Insecurity" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="gallery-grid hidden" id="gallery-page-2">
+                    <div class="gallery-item">
+                        <img src="pictures/destroyedhouses.jpg" alt="Destroyed Houses" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="pictures/education.webp" alt="Education Support" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="pictures/food dist.jpeg" alt="Food Distribution" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="pictures/medical aid.jpg" alt="Medical Aid" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="pictures/medical aid.jpg" alt="Medical Aid" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="gallery-pagination">
+                    <button class="pagination-btn" onclick="changePage('prev')">Previous</button>
+                    <div class="page-indicators">
+                        <span class="page-dot active" data-page="1"></span>
+                        <span class="page-dot" data-page="2"></span>
+                    </div>
+                    <button class="pagination-btn" onclick="changePage('next')">Next</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-sections">
+                <div class="contact-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="icon-phone">📞</i>
+                            <a href="tel:+12485663111">(974) 111111111</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="icon-email">📧</i>
+                            <a href="mailto:ahmedbousrih@gmail.com">info@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="icon-location">📍</i>
+                            <span>Qatar AL-Doha</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="follow-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-item" target="_blank" rel="noopener noreferrer">
+                            <img src="pictures/facebook.png" alt="Facebook" class="social-icon">
+                        </a>
+                        <a href="#" class="social-item" target="_blank" rel="noopener noreferrer">
+                            <img src="pictures/instagram.png" alt="Instagram" class="social-icon">
+                        </a>
+                        <a href="#" class="social-item" target="_blank" rel="noopener noreferrer">
+                            <img src="pictures/linkedin.png" alt="LinkedIn" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="i.js"></script>
+    <script src="script.js"></script>
+    <script src="particles.js"></script>
+    <script src="scroll.js"></script>
+    <script src="gallery.js"></script>
+</body>
+</html> 

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MatchAid - Donate to support urgent needs in Gaza">
+    <title>Make a Donation - Hope for Gaza</title>
+    <link rel="stylesheet" href="i.css">
+</head>
+<body>
+    <div id="particle-container"></div>
+    <header class="site-header">
+        <nav class="nav-container">
+            <div class="logo-section">
+                <a href="index.html">
+                    <img src="pictures/HopeForGaza1.png" alt="Hope For Gaza" class="logo">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="work.html">Our work</a>
+                <a href="programs.html#programs">Programs</a>
+                <a href="media-center.html">Media center</a>
+                <a href="index.html#about">About Us</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="donation-container">
+        <div class="container hidden">
+            <div class="donation-card">
+                <div class="payment-section">
+                    <button class="payment-method-btn">
+                        <img src="pictures/assets/icons/card-icon.svg" alt="" class="card-icon">
+                        Debit or Credit Card
+                    </button>
+                    
+                    <div class="card-logos">
+                        <img src="pictures/Visa.png" alt="Visa" class="payment-logo" style="width: 60px; height: auto;">
+                        <img src="pictures/MAStercard.png" alt="Mastercard" class="payment-logo" style="width: 60px; height: auto;">
+                        <img src="pictures/amex.jpg" alt="American Express" class="payment-logo" style="width: 60px; height: auto;">
+                    </div>
+                </div>
+
+                <div class="divider">OR</div>
+
+                <div class="donation-form">
+                    <button class="donation-type-btn" id="donationType">One-Time Donation</button>
+                    
+                    <div class="amount-section">
+                        <div class="currency-input">
+                            <select class="currency-select">
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="QAR">QAR</option>
+                                <option value="GBP">GBP</option>
+                                <option value="AED">AED</option>
+                            </select>
+                            <input type="text" placeholder="Enter Amount" class="amount-input">
+                        </div>
+
+                        <div class="preset-amounts">
+                            <button class="amount-btn">$100</button>
+                            <button class="amount-btn">$250</button>
+                            <button class="amount-btn">$500</button>
+                            <button class="amount-btn">$1000</button>
+                        </div>
+
+                        <select class="fund-select">
+                            <option value="" disabled selected>Select Fund</option>
+                            <option value="emergency">Emergency Relief</option>
+                            <option value="medical">Medical Aid</option>
+                            <option value="food">Food Security</option>
+                            <option value="education">Education Support</option>
+                        </select>
+
+                        <button class="next-btn">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer hidden">
+        <div class="footer-content">
+            <div class="footer-sections">
+                <div class="contact-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="icon-phone">📞</i>
+                            <a href="tel:+12485663111">(974) 111111111</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="icon-email">📧</i>
+                            <a href="mailto:ahmedbousrih@gmail.com">info@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="icon-location">📍</i>
+                            <span>Qatar AL-Doha</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="follow-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/hopeforgazaorg" class="social-item" target="_blank" rel="noopener noreferrer">
+                            <img src="pictures/facebook.png" alt="Facebook" class="social-icon">
+                        </a>
+                        <a href="https://www.instagram.com/hopeforgazaorg" class="social-item" target="_blank" rel="noopener noreferrer">
+                            <img src="pictures/instagram.png" alt="Instagram" class="social-icon">
+                        </a>
+                        <a href="https://www.linkedin.com/company/hopeforgazaorg" class="social-item" target="_blank" rel="noopener noreferrer">
+                            <img src="pictures/linkedin.png" alt="LinkedIn" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="i.js"></script>
+    <script src="script.js"></script>
+    <script src="particles.js"></script>
+    <script src="scroll.js"></script>
+    <script>
+        // Add selected class to amount buttons
+        const amountButtons = document.querySelectorAll('.amount-btn');
+        amountButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                amountButtons.forEach(btn => btn.classList.remove('selected'));
+                button.classList.add('selected');
+            });
+        });
+
+        // Currency conversion code
+        const currencySelect = document.querySelector('.currency-select');
+        const amountBtns = document.querySelectorAll('.amount-btn');
+
+        const currencySymbols = {
+            'USD': '$',
+            'EUR': '€',
+            'QAR': 'QAR',
+            'GBP': '£',
+            'AED': 'AED'
+        };
+
+        const exchangeRates = {
+            'USD': 1,
+            'EUR': 0.91,
+            'QAR': 3.64,
+            'GBP': 0.79,
+            'AED': 3.67
+        };
+
+        // Store the original USD values
+        const baseAmounts = [50, 100, 200, 500];
+
+        // Add donation type toggle functionality
+        const donationTypeBtn = document.getElementById('donationType');
+        let isOneTime = true;
+        const monthlyBaseAmounts = [25, 50, 100, 250]; // Half of the one-time amounts
+        const oneTimeBaseAmounts = [50, 100, 200, 500];
+
+        donationTypeBtn.addEventListener('click', () => {
+            isOneTime = !isOneTime;
+            donationTypeBtn.textContent = isOneTime ? 'One-Time Donation' : 'Monthly Subscription';
+            
+            // Update amounts based on donation type
+            const baseAmounts = isOneTime ? oneTimeBaseAmounts : monthlyBaseAmounts;
+            
+            // Update the button amounts
+            const selectedCurrency = currencySelect.value;
+            const symbol = currencySymbols[selectedCurrency];
+            const rate = exchangeRates[selectedCurrency];
+
+            amountBtns.forEach((btn, index) => {
+                const convertedAmount = Math.round(baseAmounts[index] * rate);
+                btn.textContent = `${symbol}${convertedAmount}`;
+                btn.setAttribute('data-currency', selectedCurrency);
+            });
+        });
+
+        // Update the currency change event listener to consider donation type
+        currencySelect.addEventListener('change', () => {
+            const selectedCurrency = currencySelect.value;
+            const symbol = currencySymbols[selectedCurrency];
+            const rate = exchangeRates[selectedCurrency];
+            const currentBaseAmounts = isOneTime ? oneTimeBaseAmounts : monthlyBaseAmounts;
+
+            amountBtns.forEach((btn, index) => {
+                const convertedAmount = Math.round(currentBaseAmounts[index] * rate);
+                btn.textContent = `${symbol}${convertedAmount}`;
+                btn.setAttribute('data-currency', selectedCurrency);
+            });
+        });
+
+        // Add payment method button functionality
+        const paymentMethodBtn = document.querySelector('.payment-method-btn');
+        const donationForm = document.querySelector('.donation-form');
+        
+        paymentMethodBtn.addEventListener('click', () => {
+            // Add active state to the button
+            paymentMethodBtn.classList.add('active');
+            
+            // Hide the donation form
+            donationForm.style.display = 'none';
+            
+            // Show loading animation
+            paymentMethodBtn.innerHTML = `
+                <div class="loading-animation">
+                    <span>Processing</span>
+                    <div class="dots">...</div>
+                </div>
+            `;
+            
+            // Simulate processing (you would replace this with actual payment processing)
+            setTimeout(() => {
+                // Redirect to payment processing page
+                window.location.href = 'payment.html';
+            }, 1500);
+        });
+
+        // Add scroll event listener for header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+    </script>
+        <script src="i.js"></script>
+        <script src="script.js"></script>
+        <script src="slider.js"></script>
+        <script src="particles.js"></script>
+        <script src="scroll.js"></script>
+</body>
+</html>

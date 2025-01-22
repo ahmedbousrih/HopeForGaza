@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs - HopeForGaza</title>
+    <link rel="stylesheet" href="i.css">
+</head>
+<body>
+    <!-- Add this div for particles -->
+    <div id="particle-container"></div>
+
+    <!-- Header Section -->
+    <header class="site-header">
+        <nav class="nav-container">
+            <div class="logo-section">
+                <a href="index.html">
+                    <img src="pictures/HopeForGaza1.png" alt="HopeForGaza Logo" class="logo">
+                </a>
+            </div>
+            <div class="header-container">
+                <div class="nav-links">
+                    <a href="work.html">Our work</a>
+                    <a href="programs.html#programs">Programs</a>
+                    <a href="media-center.html">Media center</a>
+                    <a href="index.html#about">About Us</a>
+                </div>
+                <a href="donate.html" class="donate-btn">+ DONATE</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="volunteer-section">
+            <h1>Volunteer With Us</h1>
+            <div class="volunteer-content">
+                <div class="volunteer-info">
+                    <h2>Make a Difference</h2>
+                    <p>Join our community of dedicated volunteers and help make a positive impact in people's lives.</p>
+                    
+                    <h3>Current Opportunities:</h3>
+                    <ul>
+                        <li>Community Outreach</li>
+                        <li>Event Planning</li>
+                        <li>Educational Programs</li>
+                        <li>Administrative Support</li>
+                    </ul>
+
+                    <div class="cta-button">
+                        <a href="#" class="volunteer-btn">Apply to Volunteer</a>
+                    </div>
+                </div>
+
+                <div class="requirements">
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li>Must be 18 years or older</li>
+                        <li>Commit to at least 4 hours per month</li>
+                        <li>Attend orientation session</li>
+                        <li>Pass background check</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="hidden site-footer">
+        <div class="footer-content">
+            <div class="footer-sections">
+                <div class="contact-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="icon-phone">📞</i>
+                            <a href="tel:+12485663111">(974) 111111111</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="icon-email">📧</i>
+                            <a href="mailto:ahmedbousrih@gmail.com">info@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="icon-location">📍</i>
+                            <span>Qatar AL-Doha</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="follow-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/hopeforgazaorg" class="social-item" target="_blank" rel="noopener noreferrer">
+                            <img src="pictures/facebook.png" alt="Facebook" class="social-icon">
+                        </a>
+                        <a href="https://www.instagram.com/hopeforgazaorg" class="social-item" target="_blank" rel="noopener noreferrer">
+                            <img src="pictures/instagram.png" alt="Instagram" class="social-icon">
+                        </a>
+                        <a href="https://www.linkedin.com/company/hopeforgazaorg" class="social-item" target="_blank" rel="noopener noreferrer">
+                            <img src="pictures/linkedin.png" alt="LinkedIn" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="i.js"></script>
+    <script src="script.js"></script>
+    <script src="particles.js"></script>
+    <script src="scroll.js"></script>
+    <script src="volunteer.js"></script>
+
+    <!-- Volunteer Form Modal -->
+    <div id="volunteerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Volunteer Registration</h2>
+            <form id="volunteerForm" onsubmit="submitVolunteerForm(event)">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="age">Age *</label>
+                    <input type="number" id="age" name="age" min="18" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="availability">Available Hours per Month *</label>
+                    <input type="number" id="availability" name="availability" min="4" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="interests">Areas of Interest</label>
+                    <select id="interests" name="interests" multiple>
+                        <option value="community">Community Outreach</option>
+                        <option value="events">Event Planning</option>
+                        <option value="education">Educational Programs</option>
+                        <option value="admin">Administrative Support</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience">Previous Volunteer Experience</label>
+                    <textarea id="experience" name="experience" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="motivation">Why do you want to volunteer? *</label>
+                    <textarea id="motivation" name="motivation" rows="3" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html> 
